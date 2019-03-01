@@ -15,6 +15,27 @@ module.exports = options => ({
           cacheDirectory: true,
           cacheCompression: false
         }
+      },
+      {
+        test: /\.(woff|woff2|ttf|eot|otf)/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: { name: 'public/fonts/[name].[ext]' }
+          }
+        ]
+      },
+      {
+        test: /\.(gif|svg)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 20000,
+          fallback: 'file-loader'
+        }
+      },
+      {
+        test: /\.(jpe?g|png)$/,
+        loader: 'file-loader'
       }
     ]
   },
