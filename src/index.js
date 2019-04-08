@@ -7,7 +7,7 @@ import configureStore from './stores/configureStore'
 import { ConnectedRouter } from 'connected-react-router/immutable'
 import { createBrowserHistory } from 'history'
 
-const initialState = {}
+const initialState = Map()
 const history = createBrowserHistory()
 const store = configureStore(initialState, history)
 

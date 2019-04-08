@@ -17,9 +17,10 @@ class UserList extends Component {
       <div>
         <ul>
           {users.map(user => {
+            const { id, name } = user
             return (
-              <li key={user.id}>
-                {user.id} - {user.name}
+              <li key={id}>
+                {id} - {name}
               </li>
             )
           })}

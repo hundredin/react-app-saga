@@ -11,6 +11,9 @@ module.exports = require("./webpack.base.js")({
     filename: "[name].bundle.js"
   },
   plugins: [new webpack.NoEmitOnErrorsPlugin()],
+  resolve: {
+    mainFields: ["main", "browser"]
+  },
   defines: {
     LOCAL: false,
     DEV: true,

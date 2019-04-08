@@ -1,3 +1,6 @@
+import { createReducer } from 'redux-immutablejs'
+import { fromJS } from 'immutable'
+
 export const USER_GET = 'USER_GET'
 export const USER_LIST_GET = 'USER_LIST_GET'
 
@@ -30,21 +33,16 @@ export function getUserList() {
   }
 }
 
-const initialState = {
+const initialState = fromJS({
   users: [],
   me: {}
-}
+})
 
-export default (state = initialState, action) => {
-  console.log(action.payload)
-  switch (action.type) {
-    case USER_JOIN_SUCCESS:
-      return Object.assign({}, state, { me: action.payload })
-    case USER_GET_SUCCESS:
-      return Object.assign({}, state, { me: action.payload })
-    case USER_LIST_GET_SUCCESS:
-      return Object.assign({}, state, { users: action.payload})
-    default:
-      return state
-  }
-}
+export default createReducer(initialState, {
+  [USER_JOIN_SUCCESS]: (state, action) =>
+    state.set('me', fromJS(action.payload)),
+  [USER_GET_SUCCESS]: (state, action) =>
+    state.set('me', fromJS(action.payload)),
+  [USER_LIST_GET_SUCCESS]: (state, action) =>
+    state.set('users', fromJS(action.payload))
+})

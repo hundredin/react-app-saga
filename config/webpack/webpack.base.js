@@ -54,7 +54,7 @@ module.exports = options => ({
       $: "jquery"
     }),
     new HtmlWebpackPlugin({
-      title: "옆집",
+      title: "react-app-saga",
       template: options.templateFilePath, // Load a custom template
       minify: {
         removeComments: true,

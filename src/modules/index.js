@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutablejs'
 import user from './user'
 import post from './post'
 

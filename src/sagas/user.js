@@ -10,7 +10,6 @@ import {
 } from '../modules/user'
 
 function* join(action) {
-  console.log(action)
   try {
     const { data } = yield call(Api.user.createUser, action.payload)
     yield put({ type: USER_JOIN_SUCCESS, payload: data })
@@ -30,7 +29,6 @@ function* user(action) {
 
 function* userList() {
   try {
-    console.log('getUserList')
     // const { data } = yield call(Api.user.fetchUserList)
     const data = [{ id: 1, name: 'jason' }, { id: 2, name: 'kevin' }]
     yield put({ type: 'USER_LIST_GET_SUCCESS', payload: data })

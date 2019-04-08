@@ -1,7 +1,7 @@
-import axios from 'axios'
+import { fetchGet } from '../utils/fetchUtils'
 
 function getAllPosts() {
-  return axios.get('http://localhost:8080/posts').then(response => {
+  return fetchGet('/posts').then(response => {
     return response
   })
 }

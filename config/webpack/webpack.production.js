@@ -14,6 +14,9 @@ module.exports = require("./webpack.base.js")({
     publicPath: "/",
     filename: "[name].bundle.js"
   },
+  resolve: {
+    mainFields: ["main", "browser"]
+  },
   plugins: [new CleanWebpackPlugin(pathsToClean)],
   defines: {
     LOCAL: false,
